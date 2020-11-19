@@ -1,6 +1,7 @@
 :root {
   --orange: #ff6600;
   --green: #669900;
+  --blue: #008799;
 }
 
 .wrapper {
@@ -10,6 +11,26 @@
   flex-direction: column;
   height: 100vh;
 }
+
+.disk {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(var(--blue), #fff);
+  border-radius: 50%;
+  animation: spin 1000ms linear 0s infinite forwards paused;
+  cursor: pointer;
+}
+
+.disk.end {
+  animation: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(720deg);
+  }
+}
+
 
 .block {
   background-color: var(--orange);
