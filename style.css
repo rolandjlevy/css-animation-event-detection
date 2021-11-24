@@ -1,6 +1,6 @@
 :root {
-  --orange: #ff6600;
-  --green: #669900;
+  --orange: orange;
+  --green: green;
   --blue: #008799;
 }
 
@@ -12,31 +12,22 @@
   height: 100vh;
 }
 
-.disk {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(var(--blue), #fff);
-  border-radius: 50%;
-  animation: spin 1000ms linear 0s infinite forwards paused;
-  cursor: pointer;
+.wrapper > section:not(.hidden) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
-
-.disk.end {
-  animation: none;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(720deg);
-  }
-}
-
 
 .block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
   background-color: var(--orange);
   width: 100px;
   height: 100px;
-  --timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  --timing-function: cubic-bezier(0.57, 0.01, 0.37, 0.98);
   animation: move 2s var(--timing-function) 0s 1 alternate forwards paused;
   transition: all 0.5s ease;
   cursor: pointer;
@@ -65,11 +56,38 @@
   50% {
     background-color: var(--green);
     border-radius: 50%;
-    transform: translateY(-200px) rotate(90deg) scale(0.5);
+    transform: translateY(-100px) rotate(90deg) scale(0.5);
+  }
+}
+
+.disk {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(var(--blue), #fff);
+  border-radius: 50%;
+  animation: spin 1000ms linear 0s infinite forwards paused;
+}
+
+.disk.end {
+  animation: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
 .display {
   margin: 20px 0;
   padding: 10px;
+}
+
+input {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
 }
