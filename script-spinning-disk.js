@@ -1,5 +1,8 @@
 // not working very well
 
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
+
 $('.disk').addEventListener(event, (e) => {
   $('.disk').classList.add('end');
   $('.display-disk').value = 'Animation ended';
